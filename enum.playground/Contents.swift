@@ -199,6 +199,7 @@ enum Configuration{
 }
 
 do{
+
     func setup(with configurations:[Configuration]) {
         let configurationsDic =  Dictionary(uniqueKeysWithValues:configurations.map(Configuration.maping))
         print(configurationsDic)

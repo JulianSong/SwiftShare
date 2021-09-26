@@ -32,8 +32,7 @@ do{
     }
     
     struct User {
-        @UserDefaultsWrapper(key: "USER_TOKEN",defaultValue: nil)
-        var token:String?
+        @UserDefaultsWrapper(key: "USER_TOKEN",defaultValue: nil) var token:String?
         static let current = User()
     }
     //数据源不止于UserDefaults也可以来自于配置文件，数据库，自定义的内存数据等。
@@ -63,7 +62,7 @@ do{
     
     
     @propertyWrapper
-    struct LengthLimition {
+    struct LengthLimiter {
         private var length: Int
         private var value: String = ""
         public init(maxlength: Int) {
@@ -83,10 +82,8 @@ do{
     }
     
     struct Product {
-        @CurrencyFormater(cur: "￥")
-        var price:String
-        @LengthLimition(maxlength:3)
-        var name:String
+        @CurrencyFormater(cur: "￥") var price:String
+        @LengthLimiter(maxlength:3) var name:String
     }
     
     var p1 = Product();
